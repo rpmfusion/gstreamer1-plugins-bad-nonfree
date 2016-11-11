@@ -3,7 +3,7 @@
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
-Version:        1.8.2
+Version:        1.10.0
 Release:        1%{?dist}
 License:        LGPLv2+
 Group:          Applications/Multimedia
@@ -29,6 +29,8 @@ license.
 
 %prep
 %setup -q -n gst-plugins-bad-%{version}
+# Build against 1.9.2 as 1.10.0 is not yet in the stable Fedora repo
+sed -i 's/1.10.0/1.9.2/' configure
 
 
 %build
@@ -65,6 +67,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/gstreamer-1.0/*.la
 
 
 %changelog
+* Fri Nov 11 2016 Hans de Goede <j.w.r.degoede@gmail.com> - 1.10.0-1
+- Update to 1.10.0
+
 * Sat Jul  9 2016 Hans de Goede <j.w.r.degoede@gmail.com> - 1.8.2-1
 - Update to 1.8.2
 
