@@ -3,14 +3,14 @@
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
-Version:        1.10.0
+Version:        1.10.2
 Release:        1%{?dist}
 License:        LGPLv2+
 Group:          Applications/Multimedia
 URL:            http://gstreamer.freedesktop.org/
 Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
-BuildRequires:  gstreamer1-devel >= 1.4.0
-BuildRequires:  gstreamer1-plugins-base-devel >= 1.4.0
+BuildRequires:  gstreamer1-devel >= 1.10.0
+BuildRequires:  gstreamer1-plugins-base-devel >= 1.10.0
 BuildRequires:  check
 BuildRequires:  gettext-devel
 BuildRequires:  libXt-devel
@@ -29,17 +29,16 @@ license.
 
 %prep
 %setup -q -n gst-plugins-bad-%{version}
-# Build against 1.9.2 as 1.10.0 is not yet in the stable Fedora repo
-sed -i 's/1.10.0/1.9.2/' configure
 
 
 %build
 # Note we don't bother with disabling everything which is in Fedora, that
 # is unmaintainable, instead we selectively run make in subdirs
-%configure \
+%configure --disable-static \
     --with-package-name="gst-plugins-bad 1.0 nonfree rpmfusion rpm" \
     --with-package-origin="http://rpmfusion.org/" \
-    --enable-debug --disable-static --enable-experimental
+    --enable-debug \
+    --enable-experimental
 # Don't use rpath!
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
@@ -67,6 +66,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/gstreamer-1.0/*.la
 
 
 %changelog
+* Wed Nov 30 2016 leigh scott <leigh123linux@googlemail.com> - 1.10.2-1
+- Update to 1.10.2
+
 * Fri Nov 11 2016 Hans de Goede <j.w.r.degoede@gmail.com> - 1.10.0-1
 - Update to 1.10.0
 
