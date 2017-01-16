@@ -1,10 +1,10 @@
 # which plugins to actually build and install
-%global extdirs ext/faac
+%global extdirs ext/faac ext/fdkaac
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
 Version:        1.11.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        LGPLv2+
 Group:          Applications/Multimedia
 URL:            http://gstreamer.freedesktop.org/
@@ -18,6 +18,7 @@ BuildRequires:  gtk-doc
 BuildRequires:  orc-devel
 BuildRequires:  libdca-devel
 BuildRequires:  faac-devel
+BuildRequires:  fdk-aac-devel
 
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
@@ -63,9 +64,12 @@ rm $RPM_BUILD_ROOT%{_libdir}/gstreamer-1.0/*.la
 %license COPYING.LIB
 # Plugins with external dependencies
 %{_libdir}/gstreamer-1.0/libgstfaac.so
-
+%{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Mon Jan 16 2017 Leigh Scott <leigh123linux@googlemail.com> - 1.11.1-2
+- Enable fdk-aac
+
 * Mon Jan 16 2017 Leigh Scott <leigh123linux@googlemail.com> - 1.11.1-1
 - Update to 1.11.1
 
