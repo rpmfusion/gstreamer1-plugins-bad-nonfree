@@ -28,7 +28,7 @@ license.
 
 
 %prep
-%setup -q -n gst-plugins-bad-%{version}
+%autosetup -n gst-plugins-bad-%{version}
 
 
 %build
@@ -44,7 +44,7 @@ sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 for i in %{extdirs}; do
     pushd $i
-    make %{?_smp_mflags} V=2
+    %make_build V=2
     popd
 done
 
@@ -52,10 +52,10 @@ done
 %install
 for i in %{extdirs}; do
     pushd $i
-    make install V=2 DESTDIR=$RPM_BUILD_ROOT
+    %make_install V=2
     popd
 done
-rm $RPM_BUILD_ROOT%{_libdir}/gstreamer-1.0/*.la
+rm %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 
 
 %files
