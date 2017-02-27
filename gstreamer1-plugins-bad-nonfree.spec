@@ -3,8 +3,8 @@
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
-Version:        1.11.1
-Release:        2%{?dist}
+Version:        1.11.2
+Release:        1%{?dist}
 License:        LGPLv2+
 Group:          Applications/Multimedia
 URL:            http://gstreamer.freedesktop.org/
@@ -67,6 +67,9 @@ rm %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Mon Feb 27 2017 Leigh Scott <leigh123linux@googlemail.com> - 1.11.2-1
+- Update to 1.11.2
+
 * Mon Jan 16 2017 Leigh Scott <leigh123linux@googlemail.com> - 1.11.1-2
 - Enable fdk-aac
 
