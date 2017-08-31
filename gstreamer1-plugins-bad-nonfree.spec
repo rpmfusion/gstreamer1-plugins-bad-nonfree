@@ -4,7 +4,7 @@
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
 Version:        1.12.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        LGPLv2+
 Group:          Applications/Multimedia
 URL:            http://gstreamer.freedesktop.org/
@@ -67,6 +67,9 @@ rm %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.12.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Tue Jul 18 2017 Leigh Scott <leigh123linux@googlemail.com> - 1.12.2-1
 - Update to 1.12.2
 
