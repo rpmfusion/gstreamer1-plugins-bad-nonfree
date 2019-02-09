@@ -3,11 +3,11 @@
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
-Version:        1.14.4
-Release:        2%{?dist}
+Version:        1.15.1
+Release:        1%{?dist}
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
-Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
+Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
 # Fixes FTBFS with new fdk-acc version.
 # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/825
 %if 0%{?fedora} > 29
@@ -74,6 +74,9 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Sat Feb 09 2019 Leigh Scott <leigh123linux@googlemail.com> - 1.15.1-1
+- 1.15.1
+
 * Sat Nov 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 1.14.4-2
 - Rebuild for new fdk-aac
 
