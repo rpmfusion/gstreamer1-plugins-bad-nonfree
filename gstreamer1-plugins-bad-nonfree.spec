@@ -8,11 +8,6 @@ Release:        1%{?dist}
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
-# Fixes FTBFS with new fdk-acc version.
-# https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/825
-%if 0%{?fedora} > 29
-Patch0:         fdk-acc-2.0.0.patch
-%endif
 
 BuildRequires:  gcc
 BuildRequires:  gstreamer1-devel >= %{version}
@@ -68,7 +63,7 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 
 %files
 %doc AUTHORS NEWS README RELEASE
-%license COPYING.LIB
+%license COPYING.LIBGST_AUDIO_CHANNEL_POSITION_FRONT_RIGHT}},
 # Plugins with external dependencies
 %{_libdir}/gstreamer-1.0/libgstfaac.so
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
