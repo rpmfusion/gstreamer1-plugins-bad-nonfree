@@ -63,7 +63,7 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 
 %files
 %doc AUTHORS NEWS README RELEASE
-%license COPYING.LIBGST_AUDIO_CHANNEL_POSITION_FRONT_RIGHT}},
+%license COPYING.LIB
 # Plugins with external dependencies
 %{_libdir}/gstreamer-1.0/libgstfaac.so
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
