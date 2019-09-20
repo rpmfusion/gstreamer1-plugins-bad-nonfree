@@ -4,10 +4,12 @@
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
 Version:        1.14.0
-Release:        1%{?dist}
+Release:        1%{?dist}.1
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
-Source0:        http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
+Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
+
+BuildRequires:  gcc
 BuildRequires:  gstreamer1-devel >= %{version}
 BuildRequires:  gstreamer1-plugins-base-devel >= %{version}
 BuildRequires:  check
@@ -28,7 +30,7 @@ license.
 
 
 %prep
-%autosetup -n gst-plugins-bad-%{version}
+%autosetup -p1 -n gst-plugins-bad-%{version}
 
 
 %build
@@ -67,6 +69,9 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Fri Sep 20 2019 Xavier Bachelot <xavier@bachelot.org> - 1.14.0-1.1
+- Backport spec changes from master.
+
 * Sun Apr 15 2018 Nicolas Chauvet <kwizart@gmail.com> - 1.14.0-1
 - Update to 1.14.0
 
