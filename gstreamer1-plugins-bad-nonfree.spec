@@ -8,6 +8,9 @@ Release:        1%{?dist}.1
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
+# Fixes FTBFS with new fdk-acc version.
+# https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/825
+Patch0:         fdk-acc-2.0.0.patch
 
 BuildRequires:  gcc
 BuildRequires:  gstreamer1-devel >= %{version}
@@ -73,6 +76,7 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 * Fri Sep 20 2019 Xavier Bachelot <xavier@bachelot.org> - 1.14.0-1.1
 - Backport spec changes from master.
 - Add BuildRequires: python3.
+- Add patch to build against fdk-aac 2.0.0.
 
 * Sun Apr 15 2018 Nicolas Chauvet <kwizart@gmail.com> - 1.14.0-1
 - Update to 1.14.0
