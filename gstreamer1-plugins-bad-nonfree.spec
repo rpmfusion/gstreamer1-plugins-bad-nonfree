@@ -20,6 +20,7 @@ BuildRequires:  orc-devel
 BuildRequires:  libdca-devel
 BuildRequires:  faac-devel
 BuildRequires:  fdk-aac-devel
+BuildRequires:  python3
 
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
@@ -71,6 +72,7 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %changelog
 * Fri Sep 20 2019 Xavier Bachelot <xavier@bachelot.org> - 1.14.0-1.1
 - Backport spec changes from master.
+- Add BuildRequires: python3.
 
 * Sun Apr 15 2018 Nicolas Chauvet <kwizart@gmail.com> - 1.14.0-1
 - Update to 1.14.0
