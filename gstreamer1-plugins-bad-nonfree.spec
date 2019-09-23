@@ -1,5 +1,5 @@
 # which plugins to actually build and install
-%global extdirs ext/faac ext/fdkaac
+%global extdirs ext/faac
 
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
