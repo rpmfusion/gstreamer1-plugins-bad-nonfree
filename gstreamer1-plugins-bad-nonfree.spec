@@ -4,7 +4,7 @@
 Summary:        GStreamer 1.0 streaming media framework "bad" non-free plug-ins
 Name:           gstreamer1-plugins-bad-nonfree
 Version:        1.16.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
@@ -19,7 +19,6 @@ BuildRequires:  gtk-doc
 BuildRequires:  orc-devel
 BuildRequires:  libdca-devel
 BuildRequires:  faac-devel
-BuildRequires:  fdk-aac-devel
 
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
@@ -66,9 +65,11 @@ rm -fv %{buildroot}%{_libdir}/gstreamer-1.0/*.la
 %license COPYING.LIB
 # Plugins with external dependencies
 %{_libdir}/gstreamer-1.0/libgstfaac.so
-%{_libdir}/gstreamer-1.0/libgstfdkaac.so
 
 %changelog
+* Mon Sep 23 2019 Leigh Scott <leigh123linux@googlemail.com> - 1.16.0-3
+- Remove Br fdk-aac-devel, the fedora package provides it.
+
 * Sat Aug 10 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.16.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
