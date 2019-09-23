@@ -40,7 +40,8 @@ license.
     --with-package-name="gst-plugins-bad 1.0 nonfree rpmfusion rpm" \
     --with-package-origin="http://rpmfusion.org/" \
     --enable-debug \
-    --enable-experimental
+    --enable-experimental \
+    --disable-fdk_aac
 # Don't use rpath!
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
