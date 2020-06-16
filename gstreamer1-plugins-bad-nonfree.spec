@@ -21,6 +21,7 @@ BuildRequires:  libdca-devel
 BuildRequires:  faac-devel
 BuildRequires:  fdk-aac-devel
 BuildRequires:  python3
+BuildRequires:  openssl-devel
 
 %description
 GStreamer is a streaming media framework, based on graphs of elements which
