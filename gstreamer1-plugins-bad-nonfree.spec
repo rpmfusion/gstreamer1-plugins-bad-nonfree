@@ -8,9 +8,6 @@ Release:        1%{?dist}
 License:        LGPLv2+
 URL:            http://gstreamer.freedesktop.org/
 Source0:        %url/src/gst-plugins-bad/gst-plugins-bad-%{version}.tar.xz
-# Fixes FTBFS with new fdk-acc version.
-# https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/825
-Patch0:         fdk-acc-2.0.0.patch
 
 BuildRequires:  gcc
 BuildRequires:  gstreamer1-devel >= %{version}
